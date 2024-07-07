@@ -1,0 +1,17 @@
+.header_container{
+    /* background-color: orange; */
+    margin: 1rem;
+   && .header_div{
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+   }
+}
+
+.input_search__bar{
+    width: 350px;
+    padding: 5px;
+    font-size: 15px;
+}
