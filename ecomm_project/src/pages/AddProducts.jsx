@@ -36,7 +36,7 @@ const AddProducts = () => {
             }
 
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             dispatch(setItemsArr(data));
 
         } catch (error) {

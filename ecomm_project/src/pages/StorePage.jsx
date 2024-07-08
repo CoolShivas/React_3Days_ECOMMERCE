@@ -1,6 +1,7 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./StorePage.module.css";
 import { useEffect, useState } from "react";
+import { setDataItem } from "../store/reduxStore";
 
 
 const productsArr = [
@@ -56,7 +57,11 @@ const productsArr = [
 
 const StorePage = () => {
 
-    const [dataItem, setDataItem] = useState([]);
+    // const [dataItem, setDataItem] = useState([]); // // local state variable
+
+    const dataItem = useSelector((store) => store.production.dataItem);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getDataFromServer = async () => {
@@ -75,7 +80,8 @@ const StorePage = () => {
                         ...data[key]
                     })
                 }
-                setDataItem(loadServerData);
+                // setDataItem(loadServerData);
+                dispatch(setDataItem(loadServerData));
 
             } catch (error) {
                 console.log(error.message);
@@ -91,14 +97,15 @@ const StorePage = () => {
             <div className={styles.product_details__container}>
                 {dataItem?.map((arr) => {
                     return <div className={styles.item_card} key={arr.id}>
+                        <h2> {arr.name} </h2>
                         <div className={styles.item_card__images}>
 
-                            <img src={arr.imageUrl} alt="image not found" />
+                            <img src={arr.image} alt="image not found" />
 
                         </div>
 
                         <div className={styles.item_card__details}>
-                            <p> {arr.title} </p>
+                            <p> <b>{arr.details}</b> </p>
                             <p>  Rs {arr.price}/-  </p>
                             <button className="btn btn-success">Add to Cart</button>
                         </div>

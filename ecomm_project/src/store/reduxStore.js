@@ -2,6 +2,7 @@ import {configureStore, createSlice} from "@reduxjs/toolkit";
 
 const INITIAL_VALUE = {
     itemArr : [],
+    dataItem :[],
 };
 
 const productSlice = createSlice({
@@ -10,7 +11,10 @@ const productSlice = createSlice({
  reducers : {
     setItemsArr : (state, action) => {
         state.itemArr = action.payload;
-    }
+    },
+    setDataItem : (state, action) =>{
+        state.dataItem = action.payload;
+    },
  }
 });
 
@@ -21,6 +25,6 @@ reducer : {
 }
 });
 
-export const {setItemsArr} = productSlice.actions;
+export const {setItemsArr, setDataItem } = productSlice.actions;
 
 export default reduxStore;
