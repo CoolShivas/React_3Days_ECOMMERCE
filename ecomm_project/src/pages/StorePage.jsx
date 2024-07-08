@@ -1,4 +1,6 @@
+import { useSelector } from "react-redux";
 import styles from "./StorePage.module.css";
+import { useEffect, useState } from "react";
 
 
 const productsArr = [
@@ -53,10 +55,41 @@ const productsArr = [
 
 
 const StorePage = () => {
+
+    const [dataItem, setDataItem] = useState([]);
+
+    useEffect(() => {
+        const getDataFromServer = async () => {
+            try {
+                const response = await fetch(`https://daysecommerce01-default-rtdb.firebaseio.com/eCommerce.json`)
+                if (!response.ok) {
+                    throw new Error("Something went wrong with store products");
+                }
+                const data = await response.json();
+                // console.log(data);
+
+                const loadServerData = [];
+                for (const key in data) {
+                    loadServerData.push({
+                        id: key,
+                        ...data[key]
+                    })
+                }
+                setDataItem(loadServerData);
+
+            } catch (error) {
+                console.log(error.message);
+            }
+        };
+        getDataFromServer();
+    }, []);
+
+    // console.log(dataItem);
+
     return (
         <>
             <div className={styles.product_details__container}>
-                {productsArr?.map((arr) => {
+                {dataItem?.map((arr) => {
                     return <div className={styles.item_card} key={arr.id}>
                         <div className={styles.item_card__images}>
 
@@ -78,3 +111,4 @@ const StorePage = () => {
 }
 
 export default StorePage;
+
