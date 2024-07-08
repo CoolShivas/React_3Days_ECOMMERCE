@@ -1,8 +1,12 @@
 import { useState } from "react";
 import styles from "./AddProducts.module.css";
+import { useDispatch } from "react-redux";
+import { setItemsArr } from "../store/reduxStore";
 
 
 const AddProducts = () => {
+
+    const dispatch = useDispatch();
 
     const [products, setProducts] = useState({
         name: "",
@@ -33,6 +37,7 @@ const AddProducts = () => {
 
             const data = await response.json();
             console.log(data);
+            dispatch(setItemsArr(data));
 
         } catch (error) {
             console.log(error.message);
