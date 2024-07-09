@@ -1,30 +1,59 @@
-import {configureStore, createSlice} from "@reduxjs/toolkit";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
+
+const INITIAL_AUTH = {
+    isUserLoggedIn: false,
+    userToken: "",
+    userId: null,
+};
+
+
+const authSlice = createSlice({
+    name: "authentication",
+    initialState: INITIAL_AUTH,
+    reducers: {
+        setLogIn: (state, action) => {
+            state.isUserLoggedIn = true;
+            state.userToken = action.payload;
+            state.userId = action.payload;
+        },
+        setLogOut: (state, action) => {
+            state.isUserLoggedIn = false;
+            state.userToken = action.payload;
+            state.userId = action.payload;
+        },
+    }
+});
+
+///*************************************************************************************** */
 
 const INITIAL_VALUE = {
-    itemArr : [],
-    dataItem :[],
+    itemArr: [],
+    dataItem: [],
 };
 
 const productSlice = createSlice({
- name : "eCommerce",
- initialState : INITIAL_VALUE,
- reducers : {
-    setItemsArr : (state, action) => {
-        state.itemArr = action.payload;
-    },
-    setDataItem : (state, action) =>{
-        state.dataItem = action.payload;
-    },
- }
+    name: "eCommerce",
+    initialState: INITIAL_VALUE,
+    reducers: {
+        setItemsArr: (state, action) => {
+            state.itemArr = action.payload;
+        },
+        setDataItem: (state, action) => {
+            state.dataItem = action.payload;
+        },
+    }
 });
 
 
 const reduxStore = configureStore({
-reducer : {
-    production : productSlice.reducer,
-}
+    reducer: {
+        production: productSlice.reducer,
+        authentication: authSlice.reducer,
+    }
 });
 
-export const {setItemsArr, setDataItem } = productSlice.actions;
+export const { setItemsArr, setDataItem } = productSlice.actions;
+
+export const { setLogIn, setLogOut } = authSlice.actions;
 
 export default reduxStore;

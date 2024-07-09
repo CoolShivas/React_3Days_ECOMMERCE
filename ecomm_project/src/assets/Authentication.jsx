@@ -1,7 +1,15 @@
 import { useState } from "react";
 import styles from "./Authentication.module.css";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { setLogIn } from "../store/reduxStore";
 
 const Authentication = () => {
+
+    const navigate = useHistory();
+
+    const dispatch = useDispatch();
+
     const [toggler, setToggler] = useState(false);
 
     const switchModeToggler = () => {
@@ -52,6 +60,12 @@ const Authentication = () => {
 
                 const data = await response.json();
                 console.log("Successfully Log-In", data);
+                dispatch(setLogIn({
+                    isUserLoggedIn: true,
+                    userToken: data.idToken,
+                    userId: data.email,
+                }));
+                navigate.replace("/");
                 setIsLoading(false);
 
             } catch (error) {
