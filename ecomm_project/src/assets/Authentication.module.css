@@ -23,6 +23,7 @@
     margin-top: 3rem;
     font-weight: 500;
     font-size: large;
+    text-transform: capitalize;
 }
 
 a{
@@ -34,4 +35,28 @@ a:hover{
     text-decoration: none;
     text-transform: capitalize;
     font-size: larger;
+}
+
+
+.pass_match{
+    background-color: yellowgreen;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.pass_not__match{
+    background-color: tomato;
+    color: white;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.loading_state{
+    background-color: slategrey;
+    font-weight: 500;
+    font-size: 25px;
+    color: white;
+    padding: 10px;
 }
