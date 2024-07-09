@@ -9,22 +9,22 @@ const Navbar = () => {
             <nav className={styles.navbar_container}>
                 <ul>
                     <li>
-                        <NavLink to="/homepage"> home </NavLink>
+                        <NavLink to="/mainpage/homepage"> home </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/"> store </NavLink>
+                        <NavLink to="/mainpage"> store </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/aboutpage"> about </NavLink>
+                        <NavLink to="/mainpage/aboutpage"> about </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/contactpage"> contact </NavLink>
+                        <NavLink to="/mainpage/contactpage"> contact </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/addproducts" className={styles.navbar_icons}> <MdOutlineAddCircle /> </NavLink>
+                        <NavLink to="/mainpage/addproducts" className={styles.navbar_icons}> <MdOutlineAddCircle /> </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/profile" className={styles.navbar_icons}> <FaUserCircle /> </NavLink>
+                        <NavLink to="/mainpage/profile" className={styles.navbar_icons}> <FaUserCircle /> </NavLink>
                     </li>
                 </ul>
             </nav>

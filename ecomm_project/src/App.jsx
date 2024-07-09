@@ -11,7 +11,7 @@ function App() {
 
   return <>
     <div className="app_container">
-      {isLogin ? <Authentication /> : <Route path="/">
+      {!isLogin ? <Authentication /> : <Route path="/">
         <>
           <MainPage></MainPage>
           <MyRouters></MyRouters>

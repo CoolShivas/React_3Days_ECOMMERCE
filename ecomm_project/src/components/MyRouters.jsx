@@ -9,12 +9,12 @@ import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 const MyRouters = () => {
     return (
         <Switch>
-            <Route path="/" exact> <StorePage></StorePage> </Route>
-            <Route path="/homepage"> <HomePage></HomePage> </Route>
-            <Route path="/aboutpage"> <AboutPage></AboutPage> </Route>
-            <Route path="/contactpage"> <ContactPage></ContactPage> </Route>
-            <Route path="/addproducts"> <AddProducts></AddProducts> </Route>
-            <Route path="/profile"> <ProfilePage></ProfilePage> </Route>
+            <Route path="/mainpage" exact> <StorePage></StorePage> </Route>
+            <Route path="/mainpage/homepage"> <HomePage></HomePage> </Route>
+            <Route path="/mainpage/aboutpage"> <AboutPage></AboutPage> </Route>
+            <Route path="/mainpage/contactpage"> <ContactPage></ContactPage> </Route>
+            <Route path="/mainpage/addproducts"> <AddProducts></AddProducts> </Route>
+            <Route path="/mainpage/profile"> <ProfilePage></ProfilePage> </Route>
         </Switch>
     )
 }
