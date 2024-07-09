@@ -1,6 +1,5 @@
 import Authentication from "./assets/Authentication";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
-import MyRouters from "./components/MyRouters";
 import MainPage from "./components/MainPage";
 import { useState } from "react";
 
@@ -11,12 +10,13 @@ function App() {
 
   return <>
     <div className="app_container">
-      {!isLogin ? <Authentication /> : <Route path="/">
-        <>
-          <MainPage></MainPage>
-          <MyRouters></MyRouters>
-        </>
-      </Route>}
+      {isLogin ? (<Route path="/">
+        <MainPage></MainPage>
+      </Route>)
+        :
+        (<Route path="/auth">
+          <Authentication></Authentication>
+        </Route>)}
 
     </div>
   </>
