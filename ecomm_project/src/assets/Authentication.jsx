@@ -65,6 +65,8 @@ const Authentication = () => {
                     userToken: data.idToken,
                     userId: data.email,
                 }));
+                localStorage.setItem("Save-Token", data.idToken);
+                localStorage.setItem("Save-email", data.email);
                 navigate.replace("/");
                 setIsLoading(false);
 

@@ -16,6 +16,8 @@ const Navbar = () => {
             userToken: "",
             userId: null,
         }));
+        localStorage.removeItem("Save-Token");
+        localStorage.removeItem("Save-email");
     };
 
     return (
