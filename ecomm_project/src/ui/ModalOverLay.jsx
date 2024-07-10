@@ -4,7 +4,7 @@ import styles from "./ModalOverLay.module.css";
 
 
 const Backdrop = (props) => {
-    return (<div className={styles.backdrop}></div>)
+    return (<div className={styles.backdrop} onClick={props.hideOverlayOut}></div>)
 };
 
 
@@ -17,14 +17,15 @@ const Modal = (props) => {
 };
 
 
+const portalElement = document.getElementById("overlay");
 
 const ModalOverLay = (props) => {
     return (
         <>
-            {createPortal(<Backdrop></Backdrop>)}
+            {createPortal(<Backdrop hideOverlayOut={props.hideOverlayOut}></Backdrop>, portalElement)}
             {createPortal(<Modal>
                 {props.children}
-            </Modal>)}
+            </Modal>, portalElement)}
         </>
     )
 }

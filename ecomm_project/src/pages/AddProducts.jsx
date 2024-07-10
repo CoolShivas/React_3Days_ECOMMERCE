@@ -2,9 +2,13 @@ import { useState } from "react";
 import styles from "./AddProducts.module.css";
 import { useDispatch } from "react-redux";
 import { setItemsArr } from "../store/reduxStore";
+import ModalOverLay from "../ui/ModalOverLay";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
-const AddProducts = () => {
+const AddProducts = ({ hideOverLayOut }) => {
+
+    const navigate = useHistory();
 
     const dispatch = useDispatch();
 
@@ -52,30 +56,38 @@ const AddProducts = () => {
 
     };
 
+    const handlerOverLayCloseAddProPage = () => {
+        navigate.replace("/mainpage");
+    };
+
+
     return (
-        <div className={styles.add_products__container}>
-            <form onSubmit={handlerOnSubmitForm}>
-                <div>
-                    <label htmlFor="name"> Product Name </label>
-                    <input type="text" id="name" onChange={handlerOnChange} />
-                </div>
-                <div>
-                    <label htmlFor="image"> Product Image </label>
-                    <input type="link" id="image" onChange={handlerOnChange} />
-                </div>
-                <div>
-                    <label htmlFor="details"> Product Details </label>
-                    <input type="text" id="details" onChange={handlerOnChange} />
-                </div>
-                <div>
-                    <label htmlFor="price"> Product Price </label>
-                    <input type="number" id="price" onChange={handlerOnChange} />
-                </div>
-                <div className={styles.actions}>
-                    <button className="btn btn-info" type="submit"> Add to products </button>
-                </div>
-            </form>
-        </div>
+        <ModalOverLay hideOverLayOut={hideOverLayOut}>
+            <div className={styles.add_products__container}>
+                <form onSubmit={handlerOnSubmitForm}>
+                    <div>
+                        <label htmlFor="name"> Product Name </label>
+                        <input type="text" id="name" onChange={handlerOnChange} required />
+                    </div>
+                    <div>
+                        <label htmlFor="image"> Product Image </label>
+                        <input type="link" id="image" onChange={handlerOnChange} required />
+                    </div>
+                    <div>
+                        <label htmlFor="details"> Product Details </label>
+                        <input type="text" id="details" onChange={handlerOnChange} required />
+                    </div>
+                    <div>
+                        <label htmlFor="price"> Product Price </label>
+                        <input type="number" id="price" onChange={handlerOnChange} required />
+                    </div>
+                    <div className={styles.actions}>
+                        <button className="btn btn-info" type="submit"> Add to products </button>
+                        <button className="btn btn-danger mt-3" onClick={handlerOverLayCloseAddProPage}> Close </button>
+                    </div>
+                </form>
+            </div>
+        </ModalOverLay>
     )
 }
 
