@@ -88,7 +88,14 @@ const StorePage = () => {
                 console.log(error.message);
             }
         };
-        getDataFromServer();
+
+        // // Calling the api in every 2seconds for updating the data on Store Page;
+        const intervalId = setInterval(() => {
+            getDataFromServer();
+        }, 2000);
+
+        return () => clearInterval(intervalId);
+
     }, []);
 
     const handlerOnStoreDeleteBtn = async (arr) => {
