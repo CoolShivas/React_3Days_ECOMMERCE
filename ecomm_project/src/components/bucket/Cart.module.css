@@ -1,0 +1,11 @@
+.cart_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin: 2rem;
+    border-bottom: 5px solid brown;
+    text-transform: capitalize;
+}

@@ -1,3 +1,4 @@
+import { BsCart } from "react-icons/bs";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
 import { MdOutlineAddCircle } from "react-icons/md";
@@ -33,8 +34,11 @@ const Navbar = () => {
                     <li>
                         <NavLink to="/mainpage/aboutpage"> about </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink to="/mainpage/contactpage"> contact </NavLink>
+                    </li> */}
+                    <li>
+                        <NavLink to="/mainpage/cart"> <BsCart /> </NavLink>
                     </li>
                     <li>
                         <NavLink to="/mainpage/addproducts" className={styles.navbar_icons}> <MdOutlineAddCircle /> </NavLink>

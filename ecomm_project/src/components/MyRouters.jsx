@@ -1,3 +1,4 @@
+import Cart from "./bucket/Cart";
 import StorePage from "../pages/StorePage";
 import ProfilePage from "../pages/ProfilePage";
 import AddProducts from "../pages/AddProducts";
@@ -15,6 +16,7 @@ const MyRouters = () => {
             <Route path="/mainpage/contactpage"> <ContactPage></ContactPage> </Route>
             <Route path="/mainpage/addproducts"> <AddProducts></AddProducts> </Route>
             <Route path="/mainpage/profile"> <ProfilePage></ProfilePage> </Route>
+            <Route path="/mainpage/cart"> <Cart></Cart> </Route>
         </Switch>
     )
 }
