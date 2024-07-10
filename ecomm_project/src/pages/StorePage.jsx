@@ -1,7 +1,8 @@
+import { MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./StorePage.module.css";
 import { useEffect, useState } from "react";
-import { setDataItem } from "../store/reduxStore";
+import { setDataItem, setDelete, setItemsArr } from "../store/reduxStore";
 
 
 const productsArr = [
@@ -90,11 +91,28 @@ const StorePage = () => {
         getDataFromServer();
     }, []);
 
+    const handlerOnStoreDeleteBtn = async (arr) => {
+        try {
+            const response = await fetch(`https://daysecommerce01-default-rtdb.firebaseio.com/eCommerce/${arr}.json`, {
+                method: "DELETE"
+            });
+
+            dispatch(setDelete(arr));
+            console.log("Successfully Delete");
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
     // console.log(dataItem);
 
     return (
         <>
             <div className={styles.product_details__container}>
+
+                {dataItem.length === 0 && <p className={styles.store_para}> store is empty. </p>}
+
                 {dataItem?.map((arr) => {
                     return <div className={styles.item_card} key={arr.id}>
                         <h2> {arr.name} </h2>
@@ -107,7 +125,10 @@ const StorePage = () => {
                         <div className={styles.item_card__details}>
                             <p> <b>{arr.details}</b> </p>
                             <p>  Rs {arr.price}/-  </p>
-                            <button className="btn btn-success">Add to Cart</button>
+                            <div className={styles.store_actions}>
+                                <button className="btn btn-success">Add to Cart</button>
+                                <span className={styles.store_delete__btn} onClick={() => handlerOnStoreDeleteBtn(arr.id)}> <MdDeleteForever /> </span>
+                            </div>
                         </div>
                     </div>
                 })}

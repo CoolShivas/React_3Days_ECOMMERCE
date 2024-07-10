@@ -41,6 +41,11 @@ const productSlice = createSlice({
         setDataItem: (state, action) => {
             state.dataItem = action.payload;
         },
+        setDelete: (state, action) => {
+            state.dataItem.filter((arr) => {
+                arr.id !== action.payload
+            })
+        },
     }
 });
 
@@ -52,7 +57,7 @@ const reduxStore = configureStore({
     }
 });
 
-export const { setItemsArr, setDataItem } = productSlice.actions;
+export const { setItemsArr, setDataItem, setDelete } = productSlice.actions;
 
 export const { setLogIn, setLogOut } = authSlice.actions;
 
