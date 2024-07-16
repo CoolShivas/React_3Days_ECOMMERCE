@@ -76,7 +76,8 @@ const Cart = () => {
                                                 onClick={() => handlerOnIncreaseQty(brr)}
                                             />
                                         </th>
-                                        <th>Rs.{brr.price}/-</th>
+                                        {/* <th>Rs.{brr.price}/-</th> */}
+                                        <th>Rs.{brr.price * brr.cartQty} /-</th>
                                         <th>
                                             <span
                                                 className={styles.cart_remove__btn}
