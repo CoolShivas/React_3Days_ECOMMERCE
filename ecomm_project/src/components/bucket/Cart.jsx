@@ -44,61 +44,75 @@ const Cart = () => {
                         </center>
                     </div>
                 ) : (
-                    <table className="table">
-                        <thead>
-                            <tr className={styles.thead_tr_divs}>
-                                <th> name </th>
-                                <th> image </th>
-                                <th> details </th>
-                                <th> quantity </th>
-                                <th> price </th>
-                                <th> remove </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {cartItems?.map((brr) => {
-                                return (
-                                    <tr key={brr.id}>
-                                        <th> {brr.name} </th>
-                                        <th className={styles.cart_th__image}>
-                                            <img
-                                                src={brr.image}
-                                                alt="image not found"
-                                                sizes={"20px"}
-                                            />
-                                        </th>
-                                        <th> {brr.details} </th>
-                                        <th>
+                    <>
+                        <table className="table">
+                            <thead>
+                                <tr className={styles.thead_tr_divs}>
+                                    <th> name </th>
+                                    <th> image </th>
+                                    <th> details </th>
+                                    <th> quantity </th>
+                                    <th> price </th>
+                                    <th> remove </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {cartItems?.map((brr) => {
+                                    return (
+                                        <tr key={brr.id}>
+                                            <th> {brr.name} </th>
+                                            <th className={styles.cart_th__image}>
+                                                <img
+                                                    src={brr.image}
+                                                    alt="image not found"
+                                                    sizes={"20px"}
+                                                />
+                                            </th>
+                                            <th> {brr.details} </th>
+                                            <th>
 
-                                            <FaMinusCircle className={styles.cart_qty_icons}
-                                                onClick={() => handlerOnDecreaseQty(brr)}
-                                            />
-                                            {" "}
-                                            {brr.cartQty}
-                                            {" "}
-                                            <FaPlusCircle className={styles.cart_qty_icons}
-                                                onClick={() => handlerOnIncreaseQty(brr)}
-                                            />
-                                        </th>
-                                        {/* <th>Rs.{brr.price}/-</th> */}
-                                        <th>Rs.{brr.price * brr.cartQty} /-</th>
-                                        <th>
-                                            <span
-                                                className={styles.cart_remove__btn}
-                                                onClick={() => handlerOnRemoveFromCart(brr)}
-                                            >
-                                                <FaDeleteLeft />
-                                            </span>
-                                        </th>
-                                    </tr>
+                                                <FaMinusCircle className={styles.cart_qty_icons}
+                                                    onClick={() => handlerOnDecreaseQty(brr)}
+                                                />
+                                                {" "}
+                                                {brr.cartQty}
+                                                {" "}
+                                                <FaPlusCircle className={styles.cart_qty_icons}
+                                                    onClick={() => handlerOnIncreaseQty(brr)}
+                                                />
+                                            </th>
+                                            {/* <th>Rs.{brr.price}/-</th> */}
+                                            <th>Rs.{brr.price * brr.cartQty} /-</th>
+                                            <th>
+                                                <span
+                                                    className={styles.cart_remove__btn}
+                                                    onClick={() => handlerOnRemoveFromCart(brr)}
+                                                >
+                                                    <FaDeleteLeft />
+                                                </span>
+                                            </th>
+                                        </tr>
 
-                                );
-                            })}
-                        </tbody>
-                        <div>
-                            <button className="btn btn-dark" onClick={() => handlerOnClearingCart()}>Clear Cart</button>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+
+                        <div className={styles.cart_summary}>
+
+                            <div>
+                                <button className="btn btn-dark" onClick={() => handlerOnClearingCart()}>Clear Cart</button>
+                            </div>
+
+
+                            <div className={styles.cart_subtotal}>
+                                <span> <h4> Subtotal </h4> </span>
+                                <span> <h5> Rs.10000/- </h5> </span>
+                            </div>
+
+
                         </div>
-                    </table>
+                    </>
                 )}
 
             </div>
