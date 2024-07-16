@@ -9,7 +9,6 @@ const Cart = () => {
                     <p> image </p>
                     <p> description </p>
                     <p> price </p>
-                    <p> Remove </p>
                 </div>
             </div>
         </>

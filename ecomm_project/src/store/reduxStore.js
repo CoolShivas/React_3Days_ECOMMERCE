@@ -1,6 +1,7 @@
 import productSlice from "./productSlice";
 import authSlice from "./authSlice";
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+import cartSlice from "./cartSlice";
 
 // const INITIAL_AUTH = {
 //     isUserLoggedIn: false,
@@ -56,6 +57,7 @@ const reduxStore = configureStore({
     reducer: {
         production: productSlice.reducer,
         authentication: authSlice.reducer,
+        bucket: cartSlice.reducer,
     }
 });
 

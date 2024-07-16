@@ -112,6 +112,10 @@ const StorePage = () => {
         }
     };
 
+    const handlerOnAddToCart = (arr) => {
+        console.log(arr); // Getting the data on clicking on add to cart button;
+    };
+
     // console.log(dataItem);
 
     return (
@@ -133,7 +137,7 @@ const StorePage = () => {
                             <p> <b>{arr.details}</b> </p>
                             <p>  Rs {arr.price}/-  </p>
                             <div className={styles.store_actions}>
-                                <button className="btn btn-success">Add to Cart</button>
+                                <button className="btn btn-success" onClick={() => handlerOnAddToCart(arr)}>Add to Cart</button>
                                 <span className={styles.store_delete__btn} onClick={() => handlerOnStoreDeleteBtn(arr.id)}> <MdDeleteForever /> </span>
                             </div>
                         </div>

@@ -12,6 +12,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
 
     const handlerOnLogOut = () => {
+        console.log("Successfully Log-Out");
         dispatch(setLogOut({
             isUserLoggedIn: false,
             userToken: "",
