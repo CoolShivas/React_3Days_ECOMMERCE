@@ -40,3 +40,14 @@
     font-size: 30px;
     cursor: pointer;
 }
+
+.cart_qty_icons{
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.cart_qty_icons:hover{
+    cursor: pointer;
+    font-size: 22px;
+    color: gray;
+}
