@@ -3,6 +3,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./StorePage.module.css";
 import { useEffect, useState } from "react";
+import { setAddToCartItems } from "../store/cartSlice";
 
 
 const productsArr = [
@@ -114,6 +115,7 @@ const StorePage = () => {
 
     const handlerOnAddToCart = (arr) => {
         console.log(arr); // Getting the data on clicking on add to cart button;
+        dispatch(setAddToCartItems(arr)); // Getting the data on clicking on add to cart button inside the cartItems;
     };
 
     // console.log(dataItem);
