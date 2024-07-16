@@ -1,9 +1,9 @@
-import Authentication from "./assets/Authentication";
+import { setLogIn } from "./store/authSlice";
+import Authentication from "./auth/Authentication";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import MainPage from "./components/MainPage";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogIn } from "./store/reduxStore";
 
 
 function App() {

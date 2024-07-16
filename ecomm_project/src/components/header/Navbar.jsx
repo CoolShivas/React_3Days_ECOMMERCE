@@ -1,3 +1,4 @@
+import { setLogOut } from "../../store/authSlice";
 import { BsCart } from "react-icons/bs";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
@@ -5,7 +6,6 @@ import { MdOutlineAddCircle } from "react-icons/md";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "./Navbar.module.css";
 import { useDispatch } from "react-redux";
-import { setLogOut } from "../../store/reduxStore";
 
 const Navbar = () => {
 
