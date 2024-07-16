@@ -1,7 +1,7 @@
+import { setItemsArr } from "../store/productSlice";
 import { useState } from "react";
 import styles from "./AddProducts.module.css";
 import { useDispatch } from "react-redux";
-import { setItemsArr } from "../store/reduxStore";
 import ModalOverLay from "../ui/ModalOverLay";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 

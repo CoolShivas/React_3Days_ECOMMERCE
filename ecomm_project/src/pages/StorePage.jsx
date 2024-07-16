@@ -1,8 +1,8 @@
+import { setDataItem, setDelete, setItemsArr } from "../store/productSlice";
 import { MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./StorePage.module.css";
 import { useEffect, useState } from "react";
-import { setDataItem, setDelete, setItemsArr } from "../store/reduxStore";
 
 
 const productsArr = [
