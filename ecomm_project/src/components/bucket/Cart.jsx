@@ -4,7 +4,7 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Cart.module.css";
-import { setAddToCartItems, setDecreaseCartQty, setRemoveFromCart } from "../../store/cartSlice";
+import { setAddToCartItems, setClearCart, setDecreaseCartQty, setRemoveFromCart } from "../../store/cartSlice";
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.bucket.cartItems);
@@ -25,6 +25,10 @@ const Cart = () => {
     const handlerOnIncreaseQty = (brr) => {
         console.log(brr);
         dispatch(setAddToCartItems(brr));
+    };
+
+    const handlerOnClearingCart = () => {
+        dispatch(setClearCart());
     };
 
     return (
@@ -87,11 +91,16 @@ const Cart = () => {
                                             </span>
                                         </th>
                                     </tr>
+
                                 );
                             })}
                         </tbody>
+                        <div>
+                            <button className="btn btn-dark" onClick={() => handlerOnClearingCart()}>Clear Cart</button>
+                        </div>
                     </table>
                 )}
+
             </div>
         </>
     );
