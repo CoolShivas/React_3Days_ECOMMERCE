@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useSelector } from "react-redux";
 import styles from "./Cart.module.css";
 
@@ -9,7 +10,13 @@ const Cart = () => {
     return (
         <>
             <div className="cart_container">
-                <table className="table">
+
+                {cartItems.length === 0 ? (<div>
+                    <p className={styles.cart_para}> Your cart is empty. </p>
+                    <center>
+                        <Link to="/mainpage"> click on continue shopping </Link>
+                    </center>
+                </div>) : (<table className="table">
                     <thead>
                         <tr className={styles.thead_tr_divs}>
                             <th> name </th>
@@ -34,7 +41,9 @@ const Cart = () => {
                             </tr>)
                         })}
                     </tbody>
-                </table>
+                </table>)
+                }
+
 
 
             </div>
