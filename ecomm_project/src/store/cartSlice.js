@@ -19,14 +19,14 @@ const cartSlice = createSlice({
             // // Searching for the same index;
             if (itemIndex >= 0) {// // if itemIndex greater than 0 then then increase it's quantity by one;
                 state.cartItems[itemIndex].cartQty += 1;
-                toast.info("increased product quantity", {
+                toast.info(`increased ${state.cartItems[itemIndex].name} quantity in your cart`, {
                     position: "bottom-left",
                 })
             }
             else {// // else just push the items in the array with the initial quantity i.e, 1;
                 const tempProducts = { ...action.payload, cartQty: 1 };
                 state.cartItems.push(tempProducts);
-                toast.success("added a new product to your cart", {
+                toast.success(`added a new product ${action.payload.name} to your cart`, {
                     position: "bottom-left",
                 })
             }
