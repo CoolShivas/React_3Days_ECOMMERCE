@@ -27,3 +27,16 @@
     margin: 5rem;
     font-weight: 500;
 }
+
+
+.cart_remove__btn{
+    color: red;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.cart_remove__btn:hover{
+    color: tomato;
+    font-size: 30px;
+    cursor: pointer;
+}

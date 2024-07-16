@@ -1,11 +1,20 @@
+import { FaDeleteLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Cart.module.css";
+import { setRemoveFromCart } from "../../store/cartSlice";
 
 const Cart = () => {
 
     const cartItems = useSelector((state) => state.bucket.cartItems);
     console.log(cartItems); // Getting the data after on clicking on add to cart button to cart;
+
+    const dispatch = useDispatch();
+
+    const handlerOnRemoveFromCart = (brr) => {
+        console.log(brr);
+        dispatch(setRemoveFromCart(brr));
+    };
 
     return (
         <>
@@ -24,6 +33,7 @@ const Cart = () => {
                             <th> details </th>
                             <th> quantity </th>
                             <th> price </th>
+                            <th> remove </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,6 +47,9 @@ const Cart = () => {
                                 <th> {brr.cartQty} </th>
                                 <th>
                                     Rs.{brr.price}/-
+                                </th>
+                                <th>
+                                    <span className={styles.cart_remove__btn} onClick={() => handlerOnRemoveFromCart(brr)}> <FaDeleteLeft /> </span>
                                 </th>
                             </tr>)
                         })}
