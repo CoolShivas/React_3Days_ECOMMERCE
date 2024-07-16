@@ -4,7 +4,7 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Cart.module.css";
-import { setDecreaseCartQty, setRemoveFromCart } from "../../store/cartSlice";
+import { setAddToCartItems, setDecreaseCartQty, setRemoveFromCart } from "../../store/cartSlice";
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.bucket.cartItems);
@@ -20,6 +20,11 @@ const Cart = () => {
     const handlerOnDecreaseQty = (brr) => {
         console.log(brr);
         dispatch(setDecreaseCartQty(brr));
+    };
+
+    const handlerOnIncreaseQty = (brr) => {
+        console.log(brr);
+        dispatch(setAddToCartItems(brr));
     };
 
     return (
@@ -64,8 +69,12 @@ const Cart = () => {
                                             <FaMinusCircle className={styles.cart_qty_icons}
                                                 onClick={() => handlerOnDecreaseQty(brr)}
                                             />
+                                            {" "}
                                             {brr.cartQty}
-                                            <FaPlusCircle className={styles.cart_qty_icons} />
+                                            {" "}
+                                            <FaPlusCircle className={styles.cart_qty_icons}
+                                                onClick={() => handlerOnIncreaseQty(brr)}
+                                            />
                                         </th>
                                         <th>Rs.{brr.price}/-</th>
                                         <th>
