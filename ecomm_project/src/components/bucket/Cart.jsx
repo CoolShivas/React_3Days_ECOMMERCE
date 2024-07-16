@@ -15,6 +15,7 @@ const Cart = () => {
                             <th> name </th>
                             <th> image </th>
                             <th> details </th>
+                            <th> quantity </th>
                             <th> price </th>
                         </tr>
                     </thead>
@@ -26,6 +27,7 @@ const Cart = () => {
                                     <img src={brr.image} alt="image not found" sizes={"20px"} />
                                 </th>
                                 <th> {brr.details} </th>
+                                <th> {brr.cartQty} </th>
                                 <th>
                                     Rs.{brr.price}/-
                                 </th>
