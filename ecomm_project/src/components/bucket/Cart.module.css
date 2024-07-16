@@ -9,3 +9,14 @@
     border-bottom: 5px solid brown;
     text-transform: capitalize;
 }
+
+.thead_tr_divs{
+    text-transform: capitalize;
+}
+
+.cart_th__image{
+    && img{
+        height: 100px;
+        width: 100px;
+       }
+}
