@@ -14,7 +14,7 @@ const Cart = () => {
                 {cartItems.length === 0 ? (<div>
                     <p className={styles.cart_para}> Your cart is empty. </p>
                     <center>
-                        <Link to="/mainpage"> click on continue shopping </Link>
+                        <Link to="/mainpage"> <b> click on continue shopping </b> </Link>
                     </center>
                 </div>) : (<table className="table">
                     <thead>
