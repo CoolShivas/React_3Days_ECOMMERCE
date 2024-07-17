@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { setDataItem, setDelete, setItemsArr } from "../store/productSlice";
 import { MdDeleteForever } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
@@ -131,7 +132,9 @@ const StorePage = () => {
                         <h2> {arr.name} </h2>
                         <div className={styles.item_card__images}>
 
-                            <img src={arr.image} alt="image not found" />
+                            <Link to="/mainpage/productdetails">
+                                <img src={arr.image} alt="image not found" />
+                            </Link>
 
                         </div>
 
