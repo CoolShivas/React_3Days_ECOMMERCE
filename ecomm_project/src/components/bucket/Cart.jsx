@@ -8,22 +8,19 @@ import { setAddToCartItems, setClearCart, setDecreaseCartQty, setRemoveFromCart 
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.bucket.cartItems);
-    console.log(cartItems); // Getting the data after on clicking on add to cart button to cart;
+    // console.log(cartItems); // Getting the data after on clicking on add to cart button to cart;
 
     const dispatch = useDispatch();
 
     const handlerOnRemoveFromCart = (brr) => {
-        console.log(brr);
         dispatch(setRemoveFromCart(brr));
     };
 
     const handlerOnDecreaseQty = (brr) => {
-        console.log(brr);
         dispatch(setDecreaseCartQty(brr));
     };
 
     const handlerOnIncreaseQty = (brr) => {
-        console.log(brr);
         dispatch(setAddToCartItems(brr));
     };
 
@@ -44,7 +41,7 @@ const Cart = () => {
                         <p className={styles.cart_para}> Your cart is empty. </p>
                         <center>
                             <Link to="/mainpage">
-                                <b> click on continue shopping </b>
+                                <b> start shoping </b>
                             </Link>
                         </center>
                     </div>
@@ -104,18 +101,18 @@ const Cart = () => {
                         </table>
 
                         <div className={styles.cart_summary}>
-
                             <div>
                                 <button className="btn btn-dark" onClick={() => handlerOnClearingCart()}>Clear Cart</button>
                             </div>
-
-
                             <div className={styles.cart_subtotal}>
                                 <span> <h4> Subtotal </h4> </span>
                                 <span> <h5> Rs.{subTotal}/- </h5> </span>
                             </div>
-
-
+                        </div>
+                        <div className={styles.continue_shop}>
+                            <Link to="/mainpage">
+                                <b> continue shopping </b>
+                            </Link>
                         </div>
                     </>
                 )}
