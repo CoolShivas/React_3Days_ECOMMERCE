@@ -31,6 +31,11 @@ const Cart = () => {
         dispatch(setClearCart());
     };
 
+    const subTotal = cartItems.reduce((total, item) => {
+        return total + item.price * item.cartQty;
+    }, 0);
+    console.log(subTotal); // Getting the data;
+
     return (
         <>
             <div className="cart_container">
@@ -107,7 +112,7 @@ const Cart = () => {
 
                             <div className={styles.cart_subtotal}>
                                 <span> <h4> Subtotal </h4> </span>
-                                <span> <h5> Rs.10000/- </h5> </span>
+                                <span> <h5> Rs.{subTotal}/- </h5> </span>
                             </div>
 
 
