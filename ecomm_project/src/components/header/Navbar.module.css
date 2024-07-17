@@ -19,3 +19,21 @@
     font-size: 2rem;
     cursor: pointer;
 }
+
+.cart_badge{
+    position:relative;
+    right: -12%;
+    height: 25px;
+    width: 25px;
+    padding: 2px;
+    background-color: brown;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}

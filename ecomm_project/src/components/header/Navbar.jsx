@@ -5,9 +5,12 @@ import { FaUserCircle } from "react-icons/fa";
 import { MdOutlineAddCircle } from "react-icons/md";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "./Navbar.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
+
+    const cartItems = useSelector((state) => state.bucket.cartItems);
+    console.log(cartItems);
 
     const dispatch = useDispatch();
 
@@ -21,6 +24,12 @@ const Navbar = () => {
         localStorage.removeItem("Save-Token");
         localStorage.removeItem("Save-email");
     };
+
+    const bucketQuantity = cartItems.reduce((initialVal, currElem) => {
+        initialVal = initialVal + currElem.cartQty;
+        return initialVal;
+    }, 0);
+    console.log(bucketQuantity); // Getting the cartQty;
 
     return (
         <>
@@ -39,7 +48,10 @@ const Navbar = () => {
                         <NavLink to="/mainpage/contactpage"> contact </NavLink>
                     </li> */}
                     <li>
-                        <NavLink to="/mainpage/cart"> <BsCart /> </NavLink>
+                        <NavLink to="/mainpage/cart" className={styles.navbar_icons}>
+                            <div className={styles.cart_badge}>{bucketQuantity}</div>
+                            <BsCart />
+                        </NavLink>
                     </li>
                     <li>
                         <NavLink to="/mainpage/addproducts" className={styles.navbar_icons}> <MdOutlineAddCircle /> </NavLink>

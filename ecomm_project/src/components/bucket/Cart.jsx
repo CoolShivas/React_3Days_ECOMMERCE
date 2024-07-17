@@ -31,7 +31,7 @@ const Cart = () => {
     const subTotal = cartItems.reduce((total, item) => {
         return total + item.price * item.cartQty;
     }, 0);
-    console.log(subTotal); // Getting the data;
+    console.log(subTotal); // Getting the subtotal;
 
     return (
         <>
